@@ -21,8 +21,12 @@ export let boardsManager = {
                     if (isNotClick) {
                         showHideButtonHandler(event)
                         isNotClick = false
+                        document.querySelector(`.toggle-board-button[data-board-id="${board.id}"]`).innerHTML = "x"
+
                     } else {
                         document.querySelector(`.board-columns[data-status-id="${board.id}"]`).innerHTML = ""
+                        document.querySelector(`.toggle-board-button[data-board-id="${board.id}"]`).innerHTML = "v"
+
                         isNotClick = true
                     }
                 }
