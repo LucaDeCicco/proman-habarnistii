@@ -1,10 +1,12 @@
 export const htmlTemplates = {
     board: 1,
-    card: 2
+    card: 2,
+    statuses: 3
 }
 
 export const builderFunctions = {
     [htmlTemplates.board]: boardBuilder,
+    [htmlTemplates.statuses]: statusesBuilder,
     [htmlTemplates.card]: cardBuilder
 };
 
@@ -22,13 +24,14 @@ export function htmlFactory(template) {
 
 function boardBuilder(board) {
     // return'<h1>boardbuilder</h1>'
-
+    console.log("htmlfac")
     return `<div class="board-container">
                 <div id="${board.id}">
                     <span class="board" data-board-id=${board.id}>${board.title}</span>
                     <button class="toggle-board-button" data-board-id="${board.id}">v</button>
                     <br>
-                    <div class="content"></div>
+<!--                    <div class="content"></div>-->
+                    <div class="board-columns" data-status-id="${board.id}"></div>
                 </div>
             </div>
             <br>`;
@@ -51,6 +54,10 @@ function boardBuilder(board) {
 // </div>`
 }
 
+
+function statusesBuilder(status) {
+    return `<div class="board-column" data-status-id="${status.id}">${status.title}</div>`;
+}
 
 function cardBuilder(card) {
     return `<div class="card" data-card-id="${card.id}">${card.title}</div>`;

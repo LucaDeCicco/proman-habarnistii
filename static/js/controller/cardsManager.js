@@ -12,7 +12,7 @@ export let cardsManager = {
             const content = cardBuilder(card);
             console.log('cardTitle')
             console.log(content)
-            domManager.addChild(`.content`, content);
+            // domManager.addChild(`.content`, content); (asta va trebui sa adaugam in statusul aferent nu in .content)
 
             domManager.addEventListener(
                 `.card[data-card-id="${card.id}"]`,

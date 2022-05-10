@@ -2,6 +2,7 @@ import {dataHandler} from "../data/dataHandler.js";
 import {htmlFactory, htmlTemplates} from "../view/htmlFactory.js";
 import {domManager} from "../view/domManager.js";
 import {cardsManager} from "./cardsManager.js";
+import {statusesManager} from "./statusesManager.js";
 
 export let boardsManager = {
     loadBoards: async function () {
@@ -21,7 +22,7 @@ export let boardsManager = {
                         showHideButtonHandler(event)
                         isNotClick = false
                     } else {
-                        document.querySelector(`.content`).innerHTML = ""
+                        document.querySelector(`.board-columns[data-status-id="${board.id}"]`).innerHTML = ""
                         isNotClick = true
                     }
                 }
@@ -34,5 +35,6 @@ function showHideButtonHandler(clickEvent) {
     const boardId = clickEvent.target.dataset.boardId;
     console.log('boardId')
     console.log(boardId)
-    cardsManager.loadCards(boardId);
+    // cardsManager.loadCards(boardId); asta va trebui sa o folosim dupa ce adaugam statusurile
+    statusesManager.loadstatuses(boardId);
 }
