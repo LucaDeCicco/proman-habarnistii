@@ -10,10 +10,21 @@ export let boardsManager = {
             const boardBuilder = htmlFactory(htmlTemplates.board);
             const content = boardBuilder(board);
             domManager.addChild("#root", content);
+            // document.querySelector(`.board[data-board-id="${board.id }"] .content`).innerHTML = "" !!!!
+            //
+            let isNotClick = true
+
             domManager.addEventListener(
                 `.toggle-board-button[data-board-id="${board.id}"]`,
-                "click",
-                showHideButtonHandler
+                "click", (event) => {
+                    if (isNotClick) {
+                        showHideButtonHandler(event)
+                        isNotClick = false
+                    } else {
+                        document.querySelector(`.content`).innerHTML = ""
+                        isNotClick = true
+                    }
+                }
             );
         }
     },
@@ -21,5 +32,7 @@ export let boardsManager = {
 
 function showHideButtonHandler(clickEvent) {
     const boardId = clickEvent.target.dataset.boardId;
+    console.log('boardId')
+    console.log(boardId)
     cardsManager.loadCards(boardId);
 }
