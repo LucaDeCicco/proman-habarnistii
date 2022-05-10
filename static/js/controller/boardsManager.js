@@ -39,6 +39,7 @@ function showHideButtonHandler(clickEvent) {
     const boardId = clickEvent.target.dataset.boardId;
     console.log('boardId')
     console.log(boardId)
-    // cardsManager.loadCards(boardId); asta va trebui sa o folosim dupa ce adaugam statusurile
     statusesManager.loadstatuses(boardId);
+    cardsManager.loadCards(boardId);
+
 }
