@@ -13,10 +13,24 @@ function init() {
         closeModal.addEventListener('click', () => {
             const modalElement = document.querySelector("#exampleModal")
             modalElement.remove()
-        })
+        });
+        addNewBoard();
     })
 
     // createBoardBtn.addEventListener('click', () => {dataHandler.createNewBoard('ceva');document.querySelector('#root').innerHTML="" ; boardsManager.loadBoards()})
+}
+
+function addNewBoard() {
+    const saveBtn = document.querySelector('#savenewboard')
+    saveBtn.addEventListener('click', () => {
+        const title = document.getElementById('newboardtitle').value
+        dataHandler.createNewBoard(title);
+        const modalElement = document.querySelector("#exampleModal")
+        modalElement.remove()
+        document.querySelector('#root').innerHTML = "";
+        boardsManager.loadBoards()
+    })
+
 }
 
 init();
