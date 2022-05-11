@@ -81,6 +81,7 @@ section.board {
 .board-column {
     padding: 10px;
     flex: 1;
+    border: 1px solid #b41313;
 }
 
 .board-column-content {
