@@ -1,13 +1,10 @@
 export const htmlTemplates = {
-    board: 1,
-    card: 2,
-    statuses: 3
+    board: 1, card: 2, statuses: 3, modal: 4
 }
 
 export const builderFunctions = {
-    [htmlTemplates.board]: boardBuilder,
-    [htmlTemplates.statuses]: statusesBuilder,
-    [htmlTemplates.card]: cardBuilder
+    [htmlTemplates.board]: boardBuilder, [htmlTemplates.statuses]: statusesBuilder, [htmlTemplates.card]: cardBuilder,
+    [htmlTemplates.modal]: createModal,
 };
 
 export function htmlFactory(template) {
@@ -63,3 +60,22 @@ function cardBuilder(card) {
     return `<div class="card" data-card-id="${card.id}">${card.title}</div>`;
 }
 
+function createModal() {
+    return `<div class="modal fade show" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="false" style="display: block">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Modal title</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <p>Modal body text goes here.</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>`
+}
