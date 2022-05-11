@@ -37,6 +37,7 @@ export let boardsManager = {
 
 function showHideButtonHandler(clickEvent) {
     const boardId = clickEvent.target.dataset.boardId;
+
     console.log('boardId')
     console.log(boardId)
     console.log('boardId')

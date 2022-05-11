@@ -1,10 +1,7 @@
 export let domManager = {
     addChild(parentIdentifier, childContent) {
-        console.log(childContent)
-        console.log('parentIdentifier:')
-        console.log(parentIdentifier)
+
         const parent = document.querySelector(parentIdentifier);
-        console.log(parent)
         if (parent) {
             parent.insertAdjacentHTML("beforeend", childContent);
         } else {

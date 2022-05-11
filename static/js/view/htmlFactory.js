@@ -21,10 +21,11 @@ export function htmlFactory(template) {
 
 function boardBuilder(board) {
     // return'<h1>boardbuilder</h1>'
-    console.log("htmlfac")
     return `<div class="board-container">
                 <div id="${board.id}">
-                    <span class="board" data-board-id=${board.id}>${board.title}</span>
+<!--                contenteditable="true"-->
+                    <span contenteditable="true" class="board boardtitle" data-board-id="${board.id}">${board.title}</span>
+                    <div class="putHereSaveBtn" data-board-id="${board.id}"></div>
                     <button class="toggle-board-button" data-board-id="${board.id}">v</button>
                     <br>
 <!--                    <div class="content"></div>-->
