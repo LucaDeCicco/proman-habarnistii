@@ -7,11 +7,16 @@ function init() {
     boardsManager.loadBoards();
     const createBoardBtn = document.querySelector('#createboard')
     createBoardBtn.addEventListener('click', () => {
-        domManager.addChild('#root', htmlFactory(htmlTemplates.modal)())
+        const modal = htmlFactory(htmlTemplates.modal)()
+        domManager.addChild('#root', modal)
+        const closeModal = document.querySelector('#closemodal')
+        closeModal.addEventListener('click', () => {
+            const modalElement = document.querySelector("#exampleModal")
+            modalElement.remove()
+        })
     })
 
     // createBoardBtn.addEventListener('click', () => {dataHandler.createNewBoard('ceva');document.querySelector('#root').innerHTML="" ; boardsManager.loadBoards()})
-
 }
 
 init();
