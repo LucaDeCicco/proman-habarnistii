@@ -24,7 +24,7 @@ export let boardsManager = {
                         document.querySelector(`.toggle-board-button[data-board-id="${board.id}"]`).innerHTML = "x"
 
                     } else {
-                        document.querySelector(`.board-columns[data-status-id="${board.id}"]`).innerHTML = ""
+                        document.querySelector(`.board-columns[data-board-id="${board.id}"]`).innerHTML = ""
                         document.querySelector(`.toggle-board-button[data-board-id="${board.id}"]`).innerHTML = "v"
 
                         isNotClick = true
@@ -39,6 +39,8 @@ function showHideButtonHandler(clickEvent) {
     const boardId = clickEvent.target.dataset.boardId;
     console.log('boardId')
     console.log(boardId)
+    console.log('boardId')
+
     statusesManager.loadstatuses(boardId);
     cardsManager.loadCards(boardId);
 

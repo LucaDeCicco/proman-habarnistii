@@ -9,11 +9,11 @@ export let statusesManager = {
 
         for (let status of statuses) {
             const statusesBuilder = htmlFactory(htmlTemplates.statuses);
-            const content = statusesBuilder(status);
+            const content = statusesBuilder(boardId, status);
             console.log('statuses')
             console.log(content)
             // domManager.addChild(`.content`, content);
-            domManager.addChild(`.board-columns[data-status-id="${boardId}"]`, content);
+            domManager.addChild(`.board-columns[data-board-id="${boardId}"]`, content);
 
             // domManager.addEventListener(
             //     `.card[data-card-id="${card.id}"]`,

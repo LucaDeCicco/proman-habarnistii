@@ -31,7 +31,7 @@ function boardBuilder(board) {
                     <button class="toggle-board-button" data-board-id="${board.id}">v</button>
                     <br>
 <!--                    <div class="content"></div>-->
-                    <div class="board-columns" data-status-id="${board.id}"></div>
+                    <div class="board-columns" data-board-id="${board.id}"></div>
                 </div>
             </div>
             <br>`;
@@ -55,8 +55,8 @@ function boardBuilder(board) {
 }
 
 
-function statusesBuilder(status) {
-    return `<div class="board-column" data-status-id="${status.id}">${status.title}</div>`;
+function statusesBuilder(boardId, status) {
+    return `<div class="board-column" data-board-id="${boardId}" data-status-id="${status.id}">${status.title}</div>`;
 }
 
 function cardBuilder(card) {
