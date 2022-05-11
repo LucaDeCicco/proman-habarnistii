@@ -43,12 +43,10 @@ function changeBoardTitle() {
     const boardTitles = document.querySelectorAll(`span.boardtitle[data-board-id]`)
 
     for (let boardTitle of boardTitles) {
-
         boardTitle.addEventListener('click', (ev) => {
             domManager.addChild(`.putHereSaveBtn[data-board-id="${ev.target.dataset.boardId}"]`, `<button id="saveBtn">Save</button>`)
-                saveNewTitle()
+            saveNewTitle(ev.target.dataset.boardId)
         }, {once: true})
-
     }
 }
 
@@ -60,10 +58,13 @@ function changeBoardTitle() {
 //     console.log(saveBtn)
 // }
 
-function saveNewTitle() {
+function saveNewTitle(boardId) {
     const saveBtn = document.querySelector("#saveBtn")
-    console.log('asta e butonul de save');
-    console.log(saveBtn)
+    saveBtn.addEventListener('click', () => {
+        const newTitle = document.querySelector(`.boardtitle[data-board-id="${boardId}"]`).innerHTML
+        console.log(newTitle)
+    })
+
 }
 
 init();
