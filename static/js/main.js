@@ -41,20 +41,29 @@ function changeBoardTitle() {
     // const boardId = ev.target.dataset.boardId;
 
     const boardTitles = document.querySelectorAll(`span.boardtitle[data-board-id]`)
-    console.log(boardTitles)
 
     for (let boardTitle of boardTitles) {
-        console.log(boardTitle)
 
         boardTitle.addEventListener('click', (ev) => {
-            console.log('ssssssssssssssssssssssssssssssssssssssssss')
-            console.log(ev.target.dataset.boardId)
-            console.log('ssssssssssssssssssssssssssssssssssssssssss')
             domManager.addChild(`.putHereSaveBtn[data-board-id="${ev.target.dataset.boardId}"]`, `<button id="saveBtn">Save</button>`)
+                saveNewTitle()
         }, {once: true})
 
     }
 }
 
+
+// async function saveNewTitle() {
+//     const existSaveBtn = await changeBoardTitle();
+//     const saveBtn = document.querySelector("#saveBtn")
+//     console.log('asta e butonul de save');
+//     console.log(saveBtn)
+// }
+
+function saveNewTitle() {
+    const saveBtn = document.querySelector("#saveBtn")
+    console.log('asta e butonul de save');
+    console.log(saveBtn)
+}
 
 init();
