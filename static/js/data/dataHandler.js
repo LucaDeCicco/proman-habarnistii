@@ -23,6 +23,9 @@ export let dataHandler = {
 
         // creates new board, saves it and calls the callback function with its data
     },
+    editBoardTitle: async function (newBoardTitle, boardId) {
+        return await apiGet(`/api/boards/${newBoardTitle}/${boardId}/editboardtitle`)
+    },
     createNewCard: async function (cardTitle, boardId, statusId) {
         // creates new card, saves it and calls the callback function with its data
     },

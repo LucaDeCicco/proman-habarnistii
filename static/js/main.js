@@ -51,18 +51,14 @@ function changeBoardTitle() {
 }
 
 
-// async function saveNewTitle() {
-//     const existSaveBtn = await changeBoardTitle();
-//     const saveBtn = document.querySelector("#saveBtn")
-//     console.log('asta e butonul de save');
-//     console.log(saveBtn)
-// }
-
 function saveNewTitle(boardId) {
     const saveBtn = document.querySelector("#saveBtn")
     saveBtn.addEventListener('click', () => {
         const newTitle = document.querySelector(`.boardtitle[data-board-id="${boardId}"]`).innerHTML
         console.log(newTitle)
+        dataHandler.editBoardTitle(newTitle, boardId);
+        saveBtn.remove()
+        boardsManager.loadBoards()
     })
 
 }

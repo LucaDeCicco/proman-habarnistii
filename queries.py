@@ -70,3 +70,16 @@ def create_board(board_title):
         {"board_title": board_title},
         fetchall=False
     )
+
+
+def edit_board_title(new_title_board, boardId):
+    return data_manager.execute_select(
+        """
+        UPDATE boards
+        SET title = (%(new_title_board)s)
+        WHERE id = (%(boardId)s)
+        returning id
+        """,
+        {"new_title_board": new_title_board,
+         "boardId": boardId}
+    )

@@ -41,6 +41,12 @@ def create_board(boardTitle):
     return queries.create_board(boardTitle)
 
 
+@app.route("/api/boards/<newBoardTitle>/<boardId>/editboardtitle")
+@json_response
+def edit_board_title(newBoardTitle, boardId):
+    return queries.edit_board_title(newBoardTitle, boardId)
+
+
 @app.route("/api/columns")
 @json_response
 def get_columns():
