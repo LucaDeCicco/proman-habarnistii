@@ -20,6 +20,7 @@ export let cardsManager = {
                 deleteButtonHandler
             );
         }
+    console.log('abcabcabc')
     },
 };
 

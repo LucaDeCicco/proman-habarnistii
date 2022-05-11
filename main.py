@@ -35,6 +35,12 @@ def get_cards_for_board(board_id: int):
     return queries.get_cards_for_board(board_id)
 
 
+@app.route("/api/boards/<boardTitle>/createboard")
+@json_response
+def create_board(boardTitle):
+    return queries.create_board(boardTitle)
+
+
 @app.route("/api/columns")
 @json_response
 def get_columns():

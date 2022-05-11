@@ -59,3 +59,14 @@ def get_columns():
         ;
         """
     )
+
+
+def create_board(board_title):
+    return data_manager.execute_select(
+        """
+        Insert into boards (title)
+        values (%(board_title)s) returning id
+        """,
+        {"board_title": board_title},
+        fetchall=False
+    )

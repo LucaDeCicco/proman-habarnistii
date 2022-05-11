@@ -5,6 +5,7 @@ import {domManager} from "../view/domManager.js";
 export let statusesManager = {
     loadstatuses: async function (boardId) {
         const statuses = await dataHandler.getStatuses();
+        console.log('cacat')
         console.log(statuses)
 
         for (let status of statuses) {
@@ -21,6 +22,7 @@ export let statusesManager = {
             //     deleteButtonHandler
             // );
         }
+
     },
 };
 
