@@ -43,6 +43,8 @@ function showHideButtonHandler(clickEvent) {
     console.log('boardId')
 
     statusesManager.loadstatuses(boardId);
+    // console.log('e deschis board-ul')
+
     cardsManager.loadCards(boardId);
 
 }

@@ -10,18 +10,21 @@ export let statusesManager = {
         for (let status of statuses) {
             const statusesBuilder = htmlFactory(htmlTemplates.statuses);
             const content = statusesBuilder(boardId, status);
-
-            // domManager.addChild(`.content`, content);
             domManager.addChild(`.board-columns[data-board-id="${boardId}"]`, content);
-
-            // domManager.addEventListener(
-            //     `.card[data-card-id="${card.id}"]`,
-            //     "click",
-            //     deleteButtonHandler
-            // );
         }
-        let newStatusBtn = `<button type="button" class="btn btn-secondary btn-sm" data-board-id="${boardId}">Add new status</button>`
+        let newStatusBtn = `<button type="button" class="btn btn-secondary btn-sm addStatus" data-board-id="${boardId}">Add new status</button>`
         domManager.addChild(`.board-columns[data-board-id="${boardId}"]`, newStatusBtn);
+        console.log('e deschis board-ul')
+        const addStatusBtn = document.querySelector(`.addStatus[data-board-id="${boardId}"]`)
+        console.log(addStatusBtn)
+        addStatusBtn.addEventListener('click', () => {
+            const modal = htmlFactory(htmlTemplates.modal)()
+
+            // modalTitle.innerHTML = "New Status";
+            domManager.addChild('#root', modal)
+            let modalTitle = document.querySelector('.modal-title')
+            modalTitle.innerHTML = "new status"
+        })
 
 
     },
