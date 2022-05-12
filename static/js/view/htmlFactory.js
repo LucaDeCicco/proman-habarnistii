@@ -22,7 +22,7 @@ export function htmlFactory(template) {
 function boardBuilder(board) {
     // return'<h1>boardbuilder</h1>'
     return `<div class="board-container">
-                <div id="${board.id}">
+                <div id="${board.id}" class="board-content">
 <!--                contenteditable="true"-->
                     <span contenteditable="true" class="board boardtitle" data-board-id="${board.id}">${board.title}</span>
                     <div class="putHereSaveBtn" data-board-id="${board.id}"></div>
