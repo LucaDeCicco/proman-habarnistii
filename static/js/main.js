@@ -15,10 +15,8 @@ async function init() {
             modalElement.remove()
         });
         addNewBoard();
-
     })
-
-    changeBoardTitle();
+        changeBoardTitle();
 
     // createBoardBtn.addEventListener('click', () => {dataHandler.createNewBoard('ceva');document.querySelector('#root').innerHTML="" ; boardsManager.loadBoards()})
 }
@@ -36,29 +34,31 @@ function addNewBoard() {
 
 }
 
-
+let isBtn = true
 function changeBoardTitle() {
-    // const boardId = ev.target.dataset.boardId;
-
     const boardTitles = document.querySelectorAll(`span.boardtitle[data-board-id]`)
 
     for (let boardTitle of boardTitles) {
         boardTitle.addEventListener('click', (ev) => {
-            domManager.addChild(`.putHereSaveBtn[data-board-id="${ev.target.dataset.boardId}"]`, `<button id="saveBtn">Save</button>`)
-            saveNewTitle(ev.target.dataset.boardId)
-        }, {once: true})
+            // let isBtn = true
+            if (isBtn) {
+                domManager.addChild(`.putHereSaveBtn[data-board-id="${ev.target.dataset.boardId}"]`, `<button class="saveBtn">Save</button>`)
+                isBtn = false
+                saveNewTitle(ev.target.dataset.boardId)
+            }
+        }, )
     }
 }
 
 
 function saveNewTitle(boardId) {
-    const saveBtn = document.querySelector("#saveBtn")
+    const saveBtn = document.querySelector(`.saveBtn`)
     saveBtn.addEventListener('click', () => {
         const newTitle = document.querySelector(`.boardtitle[data-board-id="${boardId}"]`).innerHTML
-        console.log(newTitle)
         dataHandler.editBoardTitle(newTitle, boardId);
         saveBtn.remove()
-        boardsManager.loadBoards()
+        isBtn = true
+        // boardsManager.loadBoards()
     })
 
 }
