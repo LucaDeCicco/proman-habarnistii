@@ -42,7 +42,6 @@ function addNewBoard() {
 
 function changeBoardTitleHandler(boardTitle) {
     let isBtn = Array.from(boardTitle.closest(".board-content").querySelectorAll('.saveBtn'))
-    console.log(isBtn)
     if (isBtn.length < 1) {
         domManager.addChild(`.putHereSaveBtn[data-board-id="${boardTitle.dataset.boardId}"]`, `<button class="saveBtn">Save</button>`)
         // isBtn = false
@@ -52,7 +51,6 @@ function changeBoardTitleHandler(boardTitle) {
 
 
 function changeBoardTitle() {
-    console.log("intra")
     const boardTitles = document.querySelectorAll(`span.boardtitle[data-board-id]`)
 
     for (let boardTitle of boardTitles) {

@@ -55,7 +55,7 @@ function boardBuilder(board) {
 
 
 function statusesBuilder(boardId, status) {
-    return `<div class="board-column" data-board-id="${boardId}" data-status-id="${status.id}">${status.title}</div>`;
+    return `<div contenteditable="true" class="board-column" data-board-id="${boardId}" data-status-id="${status.id}">${status.title}</div>`;
 }
 
 function cardBuilder(card) {

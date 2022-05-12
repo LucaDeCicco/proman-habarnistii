@@ -38,12 +38,7 @@ export let boardsManager = {
 function showHideButtonHandler(clickEvent) {
     const boardId = clickEvent.target.dataset.boardId;
 
-    console.log('boardId')
-    console.log(boardId)
-    console.log('boardId')
-
     statusesManager.loadstatuses(boardId);
-    // console.log('e deschis board-ul')
 
     cardsManager.loadCards(boardId);
 

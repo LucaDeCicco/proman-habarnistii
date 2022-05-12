@@ -53,6 +53,12 @@ def create_status(statusTitle):
     return queries.create_status(statusTitle)
 
 
+@app.route("/api/edit/status/title/<statusTitle>/<statusId>")
+@json_response
+def edit_title_status(statusTitle, statusId):
+    return queries.edit_status_title(statusTitle, statusId)
+
+
 @app.route("/api/columns")
 @json_response
 def get_columns():

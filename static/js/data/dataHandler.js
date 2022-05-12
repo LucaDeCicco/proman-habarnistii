@@ -31,6 +31,9 @@ export let dataHandler = {
     },
     createNewStatus: async function (statusTitle, boardId) {
         return await apiGet(`/api/status/${statusTitle}`)
+    },
+    editStatusTitle: async function (statusTitle, statusId) {
+        return await apiGet(`/api/edit/status/title/${statusTitle}/${statusId}`)
     }
 };
 

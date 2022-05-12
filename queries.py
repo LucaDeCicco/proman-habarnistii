@@ -95,3 +95,16 @@ def create_status(status_title):
         """,
         {'status_title': status_title}
     )
+
+
+def edit_status_title(status_title, statusId):
+    return data_manager.execute_select(
+        """
+        UPDATE statuses
+        SET title = (%(status_title)s)
+        WHERE id = (%(statusId)s)
+        returning id
+        """,
+        {"status_title": status_title,
+         "statusId": statusId}
+    )
