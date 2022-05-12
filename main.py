@@ -47,6 +47,12 @@ def edit_board_title(newBoardTitle, boardId):
     return queries.edit_board_title(newBoardTitle, boardId)
 
 
+@app.route("/api/status/<statusTitle>")
+@json_response
+def create_status(statusTitle):
+    return queries.create_status(statusTitle)
+
+
 @app.route("/api/columns")
 @json_response
 def get_columns():

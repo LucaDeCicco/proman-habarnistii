@@ -83,3 +83,15 @@ def edit_board_title(new_title_board, boardId):
         {"new_title_board": new_title_board,
          "boardId": boardId}
     )
+
+
+def create_status(status_title):
+    return data_manager.execute_select(
+        """
+        INSERT INTO statuses (title)
+        VALUES (%(status_title)s)
+        /* if title != (%(status_title)s) */
+        returning id 
+        """,
+        {'status_title': status_title}
+    )

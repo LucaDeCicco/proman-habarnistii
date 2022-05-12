@@ -1,6 +1,7 @@
 import {dataHandler} from "../data/dataHandler.js";
 import {htmlFactory, htmlTemplates} from "../view/htmlFactory.js";
 import {domManager} from "../view/domManager.js";
+import {boardsManager} from "./boardsManager.js";
 
 export let statusesManager = {
     loadstatuses: async function (boardId) {
@@ -25,15 +26,22 @@ export let statusesManager = {
 
             const closeModal = document.querySelector('#closemodal')
             closeModal.addEventListener('click', () => {
-            const modalElement = document.querySelector("#exampleModal")
-            modalElement.remove()
-        });
-            // const saveBtn = document.querySelector('#savenewboard')
-
-
+                const modalElement = document.querySelector("#exampleModal")
+                modalElement.remove()
+            });
+            const saveBtn = document.querySelector('#savenewboard')
+            saveBtn.addEventListener('click', () => {
+                const statusTitle = document.querySelector('#newboardtitle').value
+                console.log(statusTitle)
+                dataHandler.createNewStatus(statusTitle)
+                const modalElem = document.querySelector("#exampleModal")
+                modalElem.remove()
+                const page = document.querySelector('#root')
+                page.innerHTML = ""
+                boardsManager.loadBoards()
+            })
         })
-
-
+        // await boardsManager.loadBoards();
     },
 };
 
