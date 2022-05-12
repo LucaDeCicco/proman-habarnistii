@@ -90,7 +90,7 @@ def create_status(status_title):
         """
         INSERT INTO statuses (title)
         VALUES (%(status_title)s)
-        on conflict(title) do nothing
+        /* on conflict(title) do nothing */
         returning id 
         """,
         {'status_title': status_title}
