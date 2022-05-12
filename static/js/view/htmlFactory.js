@@ -30,7 +30,9 @@ function boardBuilder(board) {
                     <br>
 <!--                    <div class="content"></div>-->
                     <div class="board-columns" data-board-id="${board.id}">
-                    </div>
+                    <div class="put-here-add-card-btn" data-board-id="${board.id}"></div>
+                    <br>
+</div>
                 </div>
             </div>
             <br>`;

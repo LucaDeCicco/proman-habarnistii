@@ -22,6 +22,8 @@ export let boardsManager = {
                         showHideButtonHandler(event)
                         isNotClick = false
                         document.querySelector(`.toggle-board-button[data-board-id="${board.id}"]`).innerHTML = "x"
+                        domManager.addChild(`.put-here-add-card-btn[data-board-id="${board.id}"]`, `<button class="add-card" data-board-id="${board.id}">Add new card</button><br>`)
+
 
                     } else {
                         document.querySelector(`.board-columns[data-board-id="${board.id}"]`).innerHTML = ""

@@ -6,17 +6,13 @@ import {boardsManager} from "./boardsManager.js";
 export let statusesManager = {
     loadstatuses: async function (boardId) {
         const statuses = await dataHandler.getStatuses();
-
-
+        // domManager.addChild(`.board-columns`, `<button class="add-card" data-board-id="${boardId}">Add new card</button>`)
         for (let status of statuses) {
             const statusesBuilder = htmlFactory(htmlTemplates.statuses);
             const content = statusesBuilder(boardId, status);
             domManager.addChild(`.board-columns[data-board-id="${boardId}"]`, content);
             let statusId = status.id
             let statusColumn = document.querySelector(`.board-column[data-status-id="${statusId}"]`)
-            // statusColumn.removeEventListener('click', () => {
-            //     console.log('functioneaza event listener ul')
-            // })
             statusColumn.addEventListener('click', () => {
 
                 statusColumn.addEventListener('keypress', function (e) {
@@ -28,6 +24,7 @@ export let statusesManager = {
                         page.innerHTML = ""
                         setTimeout(() => {
                             boardsManager.loadBoards()
+
                         }, 100)
                     }
                 });
