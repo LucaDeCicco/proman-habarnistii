@@ -19,11 +19,18 @@ export let statusesManager = {
         console.log(addStatusBtn)
         addStatusBtn.addEventListener('click', () => {
             const modal = htmlFactory(htmlTemplates.modal)()
-
-            // modalTitle.innerHTML = "New Status";
             domManager.addChild('#root', modal)
             let modalTitle = document.querySelector('.modal-title')
-            modalTitle.innerHTML = "new status"
+            modalTitle.innerHTML = "New Status"
+
+            const closeModal = document.querySelector('#closemodal')
+            closeModal.addEventListener('click', () => {
+            const modalElement = document.querySelector("#exampleModal")
+            modalElement.remove()
+        });
+            // const saveBtn = document.querySelector('#savenewboard')
+
+
         })
 
 
