@@ -46,9 +46,28 @@ function showHideButtonHandler(clickEvent) {
 }
 
 function addNewCard() {
-    const addNewCardBtn = document.querySelector('.add-card')
-    addNewCardBtn.addEventListener('click', () => {
-        console.log(addNewCardBtn)
+    const addNewCardBtn = document.querySelectorAll(`button.add-card[data-board-id]`)
+    for (let btn of addNewCardBtn) {
+        btn.addEventListener('click', () => { createNewCard(btn) })
+    }
+}
 
+
+function createNewCard(btn) {
+    const modal = htmlFactory(htmlTemplates.modal)()
+    domManager.addChild('#root', modal)
+    const closeModal = document.querySelector('#closemodal')
+    closeModal.addEventListener('click', () => {
+        const modalElement = document.querySelector("#exampleModal")
+        modalElement.remove()
+    });
+    const saveBtn = document.querySelector('#savenewboard')
+    saveBtn.addEventListener('click', () => {
+        const title = document.getElementById('newboardtitle').value
+        dataHandler.createNewCard(title, btn.dataset.boardId, 1);
+        const modalElement = document.querySelector("#exampleModal")
+        modalElement.remove()
+        document.querySelector('#root').innerHTML = "";
+        boardsManager.loadBoards()
     })
 }

@@ -72,6 +72,32 @@ def create_board(board_title):
     )
 
 
+def card_order_place(statusId):
+    return data_manager.execute_select(
+        """
+        select max(card_order) from cards
+        where status_id = %(statusId)s
+        """,
+        {"statusId": statusId},
+        fetchall=False
+    )
+
+
+def create_card(cardTitle, boardId, statusId, cardOrder):
+    return data_manager.execute_select(
+        """
+        Insert into cards (title, board_id, status_id, card_order)
+        values (%(cardTitle)s, %(boardId)s, %(statusId)s, %(cardOrder)s)
+        returning id
+        """,
+        {"cardTitle": cardTitle,
+         "boardId": boardId,
+         "statusId": statusId,
+         "cardOrder": cardOrder},
+        fetchall=False
+    )
+
+
 def edit_board_title(new_title_board, boardId):
     return data_manager.execute_select(
         """

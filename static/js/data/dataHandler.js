@@ -26,8 +26,12 @@ export let dataHandler = {
     editBoardTitle: async function (newBoardTitle, boardId) {
         return await apiGet(`/api/boards/${newBoardTitle}/${boardId}/editboardtitle`)
     },
+    // createNewCard: async function (cardTitle, boardId, statusId) {
+    //     // creates new card, saves it and calls the callback function with its data
+    // },
     createNewCard: async function (cardTitle, boardId, statusId) {
-        // creates new card, saves it and calls the callback function with its data
+        console.log('intraaaaa')
+        return await apiGet(`/api/boards/${cardTitle}/${boardId}/${statusId}/createcard`);
     },
     createNewStatus: async function (statusTitle, boardId) {
         return await apiGet(`/api/status/${statusTitle}`)

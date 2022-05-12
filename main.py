@@ -41,6 +41,14 @@ def create_board(boardTitle):
     return queries.create_board(boardTitle)
 
 
+@app.route("/api/boards/<cardTitle>/<boardId>/<statusId>/createcard")
+@json_response
+def create_new_card(cardTitle, boardId, statusId):
+    card_order = queries.card_order_place(statusId)['max'] + 1
+    print(card_order)
+    return queries.create_card(cardTitle, boardId, statusId, card_order)
+
+
 @app.route("/api/boards/<newBoardTitle>/<boardId>/editboardtitle")
 @json_response
 def edit_board_title(newBoardTitle, boardId):
