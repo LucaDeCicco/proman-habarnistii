@@ -11,18 +11,17 @@ export let boardsManager = {
             const boardBuilder = htmlFactory(htmlTemplates.board);
             const content = boardBuilder(board);
             domManager.addChild("#root", content);
-            // document.querySelector(`.board[data-board-id="${board.id }"] .content`).innerHTML = "" !!!!
-            //
             let isNotClick = true
 
             domManager.addEventListener(
                 `.toggle-board-button[data-board-id="${board.id}"]`,
-                "click", (event) => {
+                "click", async (event) => {
                     if (isNotClick) {
                         showHideButtonHandler(event)
                         isNotClick = false
                         document.querySelector(`.toggle-board-button[data-board-id="${board.id}"]`).innerHTML = "x"
-                        domManager.addChild(`.put-here-add-card-btn[data-board-id="${board.id}"]`, `<button class="add-card" data-board-id="${board.id}">Add new card</button><br>`)
+                        await domManager.addChild(`.board-columns[data-board-id="${board.id}"]`, `<button class="add-card" data-board-id="${board.id}">Add new card</button><br>`)
+                        addNewCard()
 
 
                     } else {
@@ -44,4 +43,12 @@ function showHideButtonHandler(clickEvent) {
 
     cardsManager.loadCards(boardId);
 
+}
+
+function addNewCard() {
+    const addNewCardBtn = document.querySelector('.add-card')
+    addNewCardBtn.addEventListener('click', () => {
+        console.log(addNewCardBtn)
+
+    })
 }
