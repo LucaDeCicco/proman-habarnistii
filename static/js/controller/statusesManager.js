@@ -20,6 +20,9 @@ export let statusesManager = {
             //     deleteButtonHandler
             // );
         }
+        let newStatusBtn = `<button type="button" class="btn btn-secondary btn-sm" data-board-id="${boardId}">Add new status</button>`
+        domManager.addChild(`.board-columns[data-board-id="${boardId}"]`, newStatusBtn);
+
 
     },
 };

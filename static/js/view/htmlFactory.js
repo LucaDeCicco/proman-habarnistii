@@ -29,7 +29,8 @@ function boardBuilder(board) {
                     <button class="toggle-board-button" data-board-id="${board.id}">v</button>
                     <br>
 <!--                    <div class="content"></div>-->
-                    <div class="board-columns" data-board-id="${board.id}"></div>
+                    <div class="board-columns" data-board-id="${board.id}">
+                    </div>
                 </div>
             </div>
             <br>`;
