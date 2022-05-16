@@ -12,7 +12,13 @@ export let statusesManager = {
             const content = statusesBuilder(boardId, status);
             domManager.addChild(`.board-columns[data-board-id="${boardId}"]`, content);
             let statusId = status.id
-            let statusColumn = document.querySelector(`.board-column[data-status-id="${statusId}"]`)
+            let statusColumn = document.querySelector(`.status-title[data-status-id="${statusId}"]`)
+            const deleteStatusBtn = document.querySelector(`[data-status-delete-id="${statusId}"]`)
+            console.log(deleteStatusBtn)
+            deleteStatusBtn.addEventListener("click", () => {
+                console.log('status delete btn')
+                console.log(statusId)
+            })
             statusColumn.addEventListener('click', () => {
 
                 statusColumn.addEventListener('keypress', function (e) {

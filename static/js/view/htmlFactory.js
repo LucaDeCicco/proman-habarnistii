@@ -55,9 +55,9 @@ function boardBuilder(board) {
 
 
 function statusesBuilder(boardId, status) {
-    return `<div contenteditable="true" class="board-column" data-board-id="${boardId}" data-status-id="${status.id}">
-<span class="status-title">${status.title}</span>
-<div class="delete-board-button">🗑</div>
+    return `<div class="board-column" data-board-id="${boardId}" data-status-id="${status.id}">
+<span contenteditable="true" class="status-title" data-status-id="${status.id}">${status.title}</span>
+<button class="delete-board-button" data-status-delete-id="${status.id}">🗑</button>
 </div>`;
 }
 
