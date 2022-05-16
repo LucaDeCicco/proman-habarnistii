@@ -20,6 +20,8 @@ def get_card_status(status_id):
 
 def delete_board(board_id):
     return data_manager.execute_select("""
+        delete from cards
+        where board_id = %(board_id)s;
         delete from boards
         where id = %(board_id)s
         returning id
