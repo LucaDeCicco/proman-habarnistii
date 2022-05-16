@@ -1,7 +1,7 @@
 import {dataHandler} from "../data/dataHandler.js";
 import {htmlFactory, htmlTemplates} from "../view/htmlFactory.js";
 import {domManager} from "../view/domManager.js";
-import {boardsManager} from "./boardsManager";
+import {boardsManager} from "./boardsManager.js";
 
 export let cardsManager = {
     loadCards: async function (boardId) {
