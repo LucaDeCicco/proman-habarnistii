@@ -17,7 +17,7 @@ export let boardsManager = {
              domManager.addEventListener(
                 `.delete-board-button[data-board-id="${board.id}"]`,
                 "click", async (event) => {
-                    await dataHandler.deleteBoard(`${board.id}`)
+                    await dataHandler.deleteBoard(board.id)
                      const page = document.querySelector('#root')
                      page.innerHTML = ""
                      await boardsManager.loadBoards()

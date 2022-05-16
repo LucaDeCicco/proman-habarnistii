@@ -31,10 +31,13 @@ export let statusesManager = {
                 console.log('intra in if > 1 id')
                 const deleteStatusBtn = document.querySelector(`[data-status-delete-id="${statusId}"]`)
                 console.log(deleteStatusBtn)
-                deleteStatusBtn.addEventListener("click", () => {
+                deleteStatusBtn.addEventListener("click", async() => {
                     console.log('status delete btn')
                     console.log(statusId)
-                    dataHandler.deleteStatus(statusId)
+                    await dataHandler.deleteStatus(statusId)
+                    const page = document.querySelector('#root')
+                    page.innerHTML = ""
+                    await boardsManager.loadBoards()
                 })
             }
             statusColumn.addEventListener('click', () => {
