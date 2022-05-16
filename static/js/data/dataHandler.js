@@ -39,6 +39,9 @@ export let dataHandler = {
         console.log('intraaaaa')
         return await apiGet(`/api/boards/${cardTitle}/${boardId}/${statusId}/createcard`);
     },
+    deleteCard : async function (cardId) {
+        return await apiGet(`/api/card/delete/${cardId}`)
+    },
     createNewStatus: async function (statusTitle, boardId) {
         return await apiGet(`/api/status/${statusTitle}`)
     },

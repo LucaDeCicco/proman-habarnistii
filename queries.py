@@ -44,6 +44,16 @@ def delete_status(status_id):
     })
 
 
+def delete_card(card_id):
+    return data_manager.execute_select("""
+        delete from cards
+        where id = %(card_id)s
+        returning id
+    """, {
+        "card_id": card_id
+    })
+
+
 
 def get_boards():
     """
