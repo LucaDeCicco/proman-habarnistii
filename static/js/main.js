@@ -6,7 +6,7 @@ import {htmlFactory, htmlTemplates} from "./view/htmlFactory.js";
 async function init() {
     await boardsManager.loadBoards();
     const createBoardBtn = document.querySelector('#createboard')
-    createBoardBtn.addEventListener('click', () => {
+    createBoardBtn.addEventListener('click', async () => {
         const modal = htmlFactory(htmlTemplates.modal)()
         domManager.addChild('#root', modal)
         const closeModal = document.querySelector('#closemodal')
@@ -14,7 +14,7 @@ async function init() {
             const modalElement = document.querySelector("#exampleModal")
             modalElement.remove()
         });
-        addNewBoard();
+        await addNewBoard();
 
     })
     changeBoardTitle();
