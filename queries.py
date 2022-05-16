@@ -32,6 +32,19 @@ def delete_board(board_id):
                                        )
 
 
+def delete_status(status_id):
+    return data_manager.execute_select("""
+        delete from cards
+        where status_id = %(status_id)s;
+        delete from statuses
+        where id = %(status_id)s
+        returning id
+    """, {
+        "status_id": status_id
+    })
+
+
+
 def get_boards():
     """
     Gather all boards

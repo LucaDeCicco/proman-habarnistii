@@ -1,10 +1,10 @@
 export const htmlTemplates = {
-    board: 1, card: 2, statuses: 3, modal: 4
+    board: 1, card: 2, statuses: 3, modal: 4, statusesNew: 5,
 }
 
 export const builderFunctions = {
     [htmlTemplates.board]: boardBuilder, [htmlTemplates.statuses]: statusesBuilder, [htmlTemplates.card]: cardBuilder,
-    [htmlTemplates.modal]: createModal,
+    [htmlTemplates.modal]: createModal, [htmlTemplates.statusesNew]: statusesBuilderNew,
 };
 
 export function htmlFactory(template) {
@@ -58,6 +58,12 @@ function statusesBuilder(boardId, status) {
     return `<div class="board-column" data-board-id="${boardId}" data-status-id="${status.id}">
 <span contenteditable="true" class="status-title" data-status-id="${status.id}">${status.title}</span>
 <button class="delete-board-button" data-status-delete-id="${status.id}">🗑</button>
+</div>`;
+}
+
+function statusesBuilderNew(boardId, status) {
+    return `<div class="board-column" data-board-id="${boardId}" data-status-id="${status.id}">
+<span contenteditable="true" class="status-title" data-status-id="${status.id}">${status.title}</span>
 </div>`;
 }
 

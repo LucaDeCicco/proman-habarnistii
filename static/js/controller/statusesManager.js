@@ -10,15 +10,33 @@ export let statusesManager = {
         for (let status of statuses) {
             const statusesBuilder = htmlFactory(htmlTemplates.statuses);
             const content = statusesBuilder(boardId, status);
-            domManager.addChild(`.board-columns[data-board-id="${boardId}"]`, content);
+            const statusesBuilderNew = htmlFactory(htmlTemplates.statusesNew);
+            const contentNew = statusesBuilderNew(boardId, status)
+            console.log('de cate ori trece')
+            // domManager.addChild(`.board-columns[data-board-id="${boardId}"]`, content);
+
+            if (status.id === 1){
+                console.log('primul buton')
+                domManager.addChild(`.board-columns[data-board-id="${boardId}"]`, contentNew)
+            }
+            else {
+                domManager.addChild(`.board-columns[data-board-id="${boardId}"]`, content);
+                console.log('else')
+            }
             let statusId = status.id
+            console.log(statusId)
             let statusColumn = document.querySelector(`.status-title[data-status-id="${statusId}"]`)
-            const deleteStatusBtn = document.querySelector(`[data-status-delete-id="${statusId}"]`)
-            console.log(deleteStatusBtn)
-            deleteStatusBtn.addEventListener("click", () => {
-                console.log('status delete btn')
-                console.log(statusId)
-            })
+            console.log(statusColumn)
+            if (statusId > 1) {
+                console.log('intra in if > 1 id')
+                const deleteStatusBtn = document.querySelector(`[data-status-delete-id="${statusId}"]`)
+                console.log(deleteStatusBtn)
+                deleteStatusBtn.addEventListener("click", () => {
+                    console.log('status delete btn')
+                    console.log(statusId)
+                    dataHandler.deleteStatus(statusId)
+                })
+            }
             statusColumn.addEventListener('click', () => {
 
                 statusColumn.addEventListener('keypress', function (e) {

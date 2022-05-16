@@ -45,6 +45,12 @@ def create_board(boardTitle):
 def delete_board(board_id):
     return jsonify(queries.delete_board(board_id))
 
+
+@app.route("/api/status/delete/<status_id>")
+def delete_status(status_id):
+    return jsonify(queries.delete_status(status_id))
+
+
 @app.route("/api/boards/<cardTitle>/<boardId>/<statusId>/createcard")
 @json_response
 def create_new_card(cardTitle, boardId, statusId):
