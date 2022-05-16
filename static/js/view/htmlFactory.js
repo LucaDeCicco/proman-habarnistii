@@ -25,6 +25,7 @@ function boardBuilder(board) {
                 <div id="${board.id}" class="board-content">
 <!--                contenteditable="true"-->
                     <span contenteditable="true" class="board boardtitle" data-board-id="${board.id}">${board.title}</span>
+                    <button data-board-id="${board.id}" class="delete-board-button">🗑</button>
                     <div class="putHereSaveBtn" data-board-id="${board.id}"></div>
                     <button class="toggle-board-button" data-board-id="${board.id}">v</button>
                     <br>
