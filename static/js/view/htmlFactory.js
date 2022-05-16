@@ -68,7 +68,10 @@ function statusesBuilderNew(boardId, status) {
 }
 
 function cardBuilder(card) {
-    return `<div class="card" data-card-id="${card.id}">${card.title}</div>`;
+    return `<div class="card" data-card-id="${card.id}">
+    <span>${card.title}</span>
+    <button class="delete-board-button" data-card-id="${card.id}">🗑</button>
+</div>`;
 }
 
 function createModal() {

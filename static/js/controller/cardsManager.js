@@ -10,6 +10,10 @@ export let cardsManager = {
             const content = cardBuilder(card);
             let statusId = card['status_id']
             domManager.addChild(`.board-column[data-board-id="${boardId}"][data-status-id="${statusId}"]`, content);
+            const deleteCardBtn = document.querySelector(`[data-card-id="${card.id}"]`)
+            deleteCardBtn.addEventListener('click', () => {
+                console.log(card.id)
+            })
 
             domManager.addEventListener(
                 `.card[data-card-id="${card.id}"]`,
