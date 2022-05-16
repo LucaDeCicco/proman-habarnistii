@@ -23,6 +23,9 @@ export let dataHandler = {
 
         // creates new board, saves it and calls the callback function with its data
     },
+    deleteBoard: async function(boardId) {
+        return await apiGet(`/api/delete/board/${boardId}`);
+    },
     editBoardTitle: async function (newBoardTitle, boardId) {
         return await apiGet(`/api/boards/${newBoardTitle}/${boardId}/editboardtitle`)
     },
@@ -43,7 +46,7 @@ export let dataHandler = {
 
 async function apiGet(url) {
     let response = await fetch(url, {
-        method: "GET",
+        method: "GET", headers:{"Content-Type":"application/json"}
     });
     if (response.ok) {
         return await response.json();
@@ -51,9 +54,21 @@ async function apiGet(url) {
 }
 
 async function apiPost(url, payload) {
+    let response = await fetch(url, {
+        method: "POST", headers:{"Content-Type":"application/json"}, body:JSON.stringify(payload)
+    });
+    if (response.ok) {
+        return await response.json();
+    }
 }
 
 async function apiDelete(url) {
+     let response = await fetch(url, {
+        method: "DELETE", headers:{"Content-Type":"application/json"}
+    });
+    if (response.ok) {
+        return await response.json();
+    }
 }
 
 async function apiPut(url) {

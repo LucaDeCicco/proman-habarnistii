@@ -13,6 +13,17 @@ export let boardsManager = {
             domManager.addChild("#root", content);
             let isNotClick = true
 
+            // let deleteBoardBtn = document.querySelector(`.delete-board-button[data-board-id="${board.id}"]`)
+             domManager.addEventListener(
+                `.delete-board-button[data-board-id="${board.id}"]`,
+                "click", async (event) => {
+                    await dataHandler.deleteBoard(`${board.id}`)
+                     const page = document.querySelector('#root')
+                     page.innerHTML = ""
+                     await boardsManager.loadBoards()
+                 })
+
+
             domManager.addEventListener(
                 `.toggle-board-button[data-board-id="${board.id}"]`,
                 "click", async (event) => {
@@ -33,6 +44,7 @@ export let boardsManager = {
                 }
             );
         }
+
     },
 };
 

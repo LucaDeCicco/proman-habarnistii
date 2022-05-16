@@ -18,6 +18,18 @@ def get_card_status(status_id):
     return status
 
 
+def delete_board(board_id):
+    return data_manager.execute_select("""
+        delete from boards
+        where id = %(board_id)s
+        returning id
+    """,
+                                       {
+                                           "board_id": board_id
+                                       }
+                                       )
+
+
 def get_boards():
     """
     Gather all boards

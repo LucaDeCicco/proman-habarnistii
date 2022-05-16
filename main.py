@@ -1,4 +1,4 @@
-from flask import Flask, render_template, url_for
+from flask import Flask, render_template, url_for, jsonify
 from dotenv import load_dotenv
 from util import json_response
 import mimetypes
@@ -40,6 +40,10 @@ def get_cards_for_board(board_id: int):
 def create_board(boardTitle):
     return queries.create_board(boardTitle)
 
+
+@app.route("/api/delete/board/<board_id>")
+def delete_board(board_id):
+    return jsonify(queries.delete_board(board_id))
 
 @app.route("/api/boards/<cardTitle>/<boardId>/<statusId>/createcard")
 @json_response
